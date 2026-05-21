@@ -10,5 +10,13 @@ namespace ECommerceAPI.Data
         }
 
         public DbSet<Orderdetails> Orderdetails { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Orderdetails>().HasKey(o => o.orderId);
+            modelBuilder.Entity<Orderdetails>().HasKey(o => o.productId);
+            modelBuilder.Entity<Orderdetails>().HasKey(o => o.customerId);
+        }
     }
 }
