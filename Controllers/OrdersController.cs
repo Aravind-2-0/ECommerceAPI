@@ -31,7 +31,7 @@ namespace ECommerceAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError("An error occurred while fetching total customers: {Message}", ex.Message);
-                return StatusCode(500);
+                return StatusCode(500, "Internal server error");
             }            
         }
 
@@ -46,7 +46,7 @@ namespace ECommerceAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError("An error ocurred while fetching total orders: {Message}", ex.Message);
-                return StatusCode(500);
+                return StatusCode(500, "Internal server error");
             }            
         }
 
@@ -61,7 +61,7 @@ namespace ECommerceAPI.Controllers
             catch(Exception ex)
             {
                 _logger.LogError("An error ocurred while fetching average orders: {Message}", ex.Message);
-                return StatusCode(500);
+                return StatusCode(500, "Internal server error");
             }
         }
     }
